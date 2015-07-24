@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.18.0.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script src="table.js"></script>
+    <script>
+
+        QUnit.test("tableTest", function(assert){
+            for(var i = 0; i < 4; i++){
+                for(var j = 0; j < 4; j++){
+                    assert.equal(jQuery(Table.getViewCell(i,j)).attr(''+i), i);
+                    assert.equal(jQuery(Table.getViewCell(i,j)).attr(''+j), j);
+                }
+            }
+        });
+
+    </script>
+
+    <table id="table">
+        <tr>
+            <td i="0" j="0"></td>
+            <td i="0" j="1"></td>
+            <td i="0" j="2"></td>
+            <td i="0" j="3"></td>
+        </tr>
+        <tr>
+            <td i="1" j="0"></td>
+            <td i="1" j="1"></td>
+            <td i="1" j="2"></td>
+            <td i="1" j="3"></td>
+        </tr>
+        <tr>
+            <td i="2" j="0"></td>
+            <td i="2" j="1"></td>
+            <td i="2" j="2"></td>
+            <td i="2" j="3"></td>
+        </tr>
+        <tr>
+            <td i="3" j="0"></td>
+            <td i="3" j="1"></td>
+            <td i="3" j="2"></td>
+            <td i="3" j="3"></td>
+        </tr>
+    </table>
+
+    <div id="qunit"></div>
+</head>
+<body>
+
+</body>
+</html>

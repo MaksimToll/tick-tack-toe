@@ -1,4 +1,4 @@
-exports = (function(){
+var Table = (function(){
     function Table(){}
 
     Table.prototype.getViewCell = function(i,j) {
