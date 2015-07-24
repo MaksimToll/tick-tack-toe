@@ -6,6 +6,10 @@
 
 ## Directory-based project format:
 .idea/
+
+##node modules dependencies
+node_modules/
+
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
