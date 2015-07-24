@@ -9,13 +9,35 @@
     <script src="table.js"></script>
     <script>
 
-        QUnit.test("tableTest", function(assert){
+        QUnit.test("tableTest.getCell", function(assert){
             for(var i = 0; i < 4; i++){
                 for(var j = 0; j < 4; j++){
-                    assert.equal(jQuery(Table.getViewCell(i,j)).attr(''+i), i);
-                    assert.equal(jQuery(Table.getViewCell(i,j)).attr(''+j), j);
+                    assert.equal(jQuery(Table.getViewCell(i,j)).attr('i'), i);
+                    assert.equal(jQuery(Table.getViewCell(i,j)).attr('j'), j);
                 }
             }
+        });
+
+        QUnit.test("tableTest.getArrayIndex", function(assert){
+            assert.equal(Table.getArrayIndex(0,0).i, 0);
+            assert.equal(Table.getArrayIndex(0,0).j, 0);
+
+            assert.equal(Table.getArrayIndex(2,2).i,1);
+            assert.equal(Table.getArrayIndex(2,2).j,1);
+
+            assert.equal(Table.getArrayIndex(4,2).i,2);
+            assert.equal(Table.getArrayIndex(4,2).j,1);
+        });
+
+        QUnit.test("tableTest.getIndexBuCell", function(assert){
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).i, 1);
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).j, 1);
+
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(3) td:eq(1)')).i, 3);
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(0)')).j, 0);
+
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(2) td:eq(1)')).i, 2);
+            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).j, 1);
         });
 
     </script>
