@@ -1,4 +1,4 @@
-var Table = (function(){
+var table = (function(){
     function Table(){
 
     }
@@ -69,14 +69,20 @@ var Table = (function(){
     };
 
     Table.prototype.createTable = function(size){
-        var table = jQuery('#table');
+        var tbl = jQuery('#table');
 
         for(var i = 0; i < size; i++){
             var tr = createRow(i);
             for(var j = 0; j < size; j++){
                 var td = createColumn(j);
+                if(i%2 ^ j%2){
+                    jQuery(td).bind('click', function(element){
+                        table.drawLine.call(table, element.target);
+                    });
+                }
                 jQuery(tr).append(td)
             }
+            jQuery(tbl).append(tr);
         }
     };
 
@@ -86,9 +92,6 @@ var Table = (function(){
             jQuery(td).addClass('wide');
         } else{
             jQuery(td).addClass('narrow');
-            jQuery(td).bind('click', function(element){
-                Table.drawLine.call(table, element);
-            })
         }
         return td;
     }
@@ -103,7 +106,8 @@ var Table = (function(){
         return tr;
     }
 
-    return new Table();
+    var table = new Table();
+    return table;
 })();
 
 

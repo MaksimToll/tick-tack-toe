@@ -4,55 +4,61 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.18.0.css">
+    <link rel="stylesheet" href="style.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script src="Element.js"></script>
     <script src="table.js"></script>
     <script>
 
-        QUnit.test("tableTest.getCell", function(assert){
+        jQuery(document).ready(function(){
+            table.createTable(9);
+        });
+
+       /* QUnit.test("tableTest.getCell", function(assert){
             for(var i = 0; i < 4; i++){
                 for(var j = 0; j < 4; j++){
-                    assert.equal(jQuery(Table.getViewCell(i,j)).attr('i'), i);
-                    assert.equal(jQuery(Table.getViewCell(i,j)).attr('j'), j);
+                    assert.equal(jQuery(table.getViewCell(i,j)).attr('i'), i);
+                    assert.equal(jQuery(table.getViewCell(i,j)).attr('j'), j);
                 }
             }
         });
 
         QUnit.test("tableTest.getArrayIndex", function(assert){
-            assert.equal(Table.getArrayIndex(0,0).i, 0);
-            assert.equal(Table.getArrayIndex(0,0).j, 0);
+            assert.equal(table.getArrayIndex(0,0).i, 0);
+            assert.equal(table.getArrayIndex(0,0).j, 0);
 
-            assert.equal(Table.getArrayIndex(2,2).i,1);
-            assert.equal(Table.getArrayIndex(2,2).j,1);
+            assert.equal(table.getArrayIndex(2,2).i,1);
+            assert.equal(table.getArrayIndex(2,2).j,1);
 
-            assert.equal(Table.getArrayIndex(4,2).i,2);
-            assert.equal(Table.getArrayIndex(4,2).j,1);
+            assert.equal(table.getArrayIndex(4,2).i,2);
+            assert.equal(table.getArrayIndex(4,2).j,1);
         });
 
         QUnit.test("tableTest.getIndexBuCell", function(assert){
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).i, 1);
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).i, 1);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
 
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(3) td:eq(1)')).i, 3);
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(0)')).j, 0);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(3) td:eq(1)')).i, 3);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(0)')).j, 0);
 
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(2) td:eq(1)')).i, 2);
-            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(2) td:eq(1)')).i, 2);
+            assert.equal(table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
         });
 
         QUnit.test("tableTest.markLine", function(assert){
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)')).length,2);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)')).length,2);
 
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].i, 0);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].i, 1);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].j, 1);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].j, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].i, 0);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].i, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].j, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].j, 1);
 
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].i, 1);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].i, 1);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].j, 1);
-            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].j, 2);
-        });
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].i, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].i, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].j, 1);
+            assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].j, 2);
+        });*/
 
     </script>
 
@@ -62,7 +68,7 @@
 <body>
 
 <table id="table">
-    <tr>
+    <!--<tr>
         <td i="0" j="0"></td>
         <td i="0" j="1"></td>
         <td i="0" j="2"></td>
@@ -85,7 +91,7 @@
         <td i="3" j="1"></td>
         <td i="3" j="2"></td>
         <td i="3" j="3"></td>
-    </tr>
+    </tr>-->
 </table>
 
 </body>
