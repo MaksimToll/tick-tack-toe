@@ -56,11 +56,27 @@ var drawLine = function(сoord){
         throw "IncorrectCoordenateExceprion";
     }
 }
+// return -1 if no found element less then 2
+var findBetterElement = function(){
+    var resultElement;
+    for(var i = 0; i<Matrix.length;i++){
+        for(var j =0; j<Matrix[i].length;j++){
+            var currentElement = Matrix[i][j];
+            if(currentElement.getCount()<2){
+                resultElement = {"i": i, "j": j};
+                return resultElement;
+            }
+        }
+    }
+    return -1;
+}
+
 drawLine(emylCoorrd);
 console.log(Matrix);
 console.log(Matrix[2][2]);
 console.log(Matrix[3][2]);
-console.log(Matrix[1][1].addLine(2));
-console.log(Matrix[1][1].addLine(0));
-console.log(Matrix[1][1].addLine(1));
+console.log(Matrix[0][0].addLine(2));
+console.log(Matrix[0][0].addLine(0));
+console.log(Matrix[0][0].addLine(1));
+console.log(findBetterElement());
 console.log(findThrees());
