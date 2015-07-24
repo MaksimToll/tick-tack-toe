@@ -22,6 +22,10 @@ var createArray = function(size){
     }
     return resArr;
 }
+
+
+
+
 var temp = new Element();
 console.log(temp.addLine(2));
 console.log(temp.arr);
