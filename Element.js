@@ -1,6 +1,3 @@
-/**
- * Created by fagim on 25.07.15.
- */
 function Element(){
     this.arr = [0, 0, 0, 0];
     this.addLine = function(NumberOfLine){
@@ -13,4 +10,15 @@ function Element(){
         }
         return res;
     }
+}
+
+var createArray = function(size){
+    var resArr= new Array();
+    for(var i = 0; i<size; i++){
+        resArr[i] = new Array();
+        for(var j =0; j<size; j++){
+            resArr[i][j] = new Element();
+        }
+    }
+    return resArr;
 }
