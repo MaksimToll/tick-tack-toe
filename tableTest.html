@@ -30,14 +30,28 @@
         });
 
         QUnit.test("tableTest.getIndexBuCell", function(assert){
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).i, 1);
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).j, 1);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).i, 1);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
 
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(3) td:eq(1)')).i, 3);
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(0)')).j, 0);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(3) td:eq(1)')).i, 3);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(0)')).j, 0);
 
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(2) td:eq(1)')).i, 2);
-            assert.equal(Table.getCellIndex(jQuery('#table tr:eq(1) td:eq(1)')).j, 1);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(2) td:eq(1)')).i, 2);
+            assert.equal(Table.getCellIndex(jQuery('#table').find('tr:eq(1) td:eq(1)')).j, 1);
+        });
+
+        QUnit.test("tableTest.markLine", function(assert){
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)')).length,2);
+
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].i, 0);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].i, 1);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[0].j, 1);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(1) td:eq(2)'))[1].j, 1);
+
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].i, 1);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].i, 1);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].j, 1);
+            assert.equal(Table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].j, 2);
         });
 
     </script>
