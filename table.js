@@ -59,7 +59,7 @@ var table = (function(){
             elements[1] = this.getArrayIndex(cellIndex.i + 1, cellIndex.j);
         }
         try{
-            Matrix.drawLine(elements);
+            matrix.drawLine(elements);
         }catch (e){
             console.log("Matrix is not defined");
         }

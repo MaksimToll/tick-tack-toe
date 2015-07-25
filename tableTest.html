@@ -15,11 +15,11 @@
             table.createTable(9);
         });
 
-       /* QUnit.test("tableTest.getCell", function(assert){
+        QUnit.test("tableTest.getCell", function(assert){
             for(var i = 0; i < 4; i++){
                 for(var j = 0; j < 4; j++){
-                    assert.equal(jQuery(table.getViewCell(i,j)).attr('i'), i);
-                    assert.equal(jQuery(table.getViewCell(i,j)).attr('j'), j);
+                    assert.equal(jQuery(table.getViewCell(i,j)).index(), j);
+                    assert.equal(jQuery(table.getViewCell(i,j)).parent('tr').index(), i);
                 }
             }
         });
@@ -58,7 +58,7 @@
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].i, 1);
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].j, 1);
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].j, 2);
-        });*/
+        });
 
     </script>
 
@@ -68,30 +68,7 @@
 <body>
 
 <table id="table">
-    <!--<tr>
-        <td i="0" j="0"></td>
-        <td i="0" j="1"></td>
-        <td i="0" j="2"></td>
-        <td i="0" j="3"></td>
-    </tr>
-    <tr>
-        <td i="1" j="0"></td>
-        <td i="1" j="1"></td>
-        <td i="1" j="2"></td>
-        <td i="1" j="3"></td>
-    </tr>
-    <tr>
-        <td i="2" j="0"></td>
-        <td i="2" j="1"></td>
-        <td i="2" j="2"></td>
-        <td i="2" j="3"></td>
-    </tr>
-    <tr>
-        <td i="3" j="0"></td>
-        <td i="3" j="1"></td>
-        <td i="3" j="2"></td>
-        <td i="3" j="3"></td>
-    </tr>-->
+
 </table>
 
 </body>
