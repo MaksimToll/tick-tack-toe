@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.18.0.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script src="../js/Element.js"></script>
+    <script src="table.js"></script>
+    <script>
+        QUnit.test("logicTest.getCount", function(assert){
+            var matr = new Matrix(4);
+            matr.matr[2][2].addLine(0);
+            matr.matr[2][2].addLine(1);
+            matr.matr[2][2].addLine(3);
+            assert.equal(matr.matr[2][2].getCount(), 3);
+
+        });
+        QUnit.test("logicTest.drawLine", function(assert){
+            var matr = new Matrix(4);
+            var testCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
+            matr.matr.drawLine(testCoorrd);
+            assert.equal(matr.matr[2][2].);
+        });
+
+    </script>
+    <div id="qunit"></div>
+</head>
+<body>
+
+<table id="table">
+
+</table>
+
+</body>
+</html>
