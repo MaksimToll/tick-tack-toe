@@ -1,6 +1,6 @@
-var matrix = (function () {
-    function Matrix() {
-        this.matr = createArray(5);
+
+    function Matrix(size) {
+        this.matr = this.createArray(size);
     }
 
     function Element() {
@@ -91,14 +91,5 @@ var matrix = (function () {
 
         }
     };
-    return new Matrix();
-    drawLine(emylCoorrd);
-    console.log(Matrix);
-    console.log(Matrix[2][2]);
-    console.log(Matrix[3][2]);
-    console.log(Matrix[0][0].addLine(2));
-    console.log(Matrix[0][0].addLine(0));
-    console.log(Matrix[0][0].addLine(1));
-    console.log(findBetterElement());
-    console.log(findThrees());
-})();
+
+
