@@ -68,7 +68,13 @@ var table = (function(){
 
     };
 
+    /*
+    Creates table in DOM model
+     */
     Table.prototype.createTable = function(size){
+
+        if(size%2 == 0) size++;
+
         var tbl = jQuery('#table');
 
         for(var i = 0; i < size; i++){
