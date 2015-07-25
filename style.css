@@ -1,0 +1,23 @@
+.tall{
+    height: 40px;
+}
+
+.low{
+    height: 2px;
+}
+
+.wide{
+    width: 40px;
+}
+
+.narrow{
+    width:2px;
+}
+
+.marked{
+    background-color: #b94a48;
+}
+
+tr:nth-child(n+1){
+    background-color: aliceblue;
+}
