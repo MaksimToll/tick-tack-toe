@@ -52,12 +52,16 @@ module.exports = (function(){
     };
 
     Game.prototype.move = function(id, cells){
+
         if(this.status === STATUS_WAIT) throw 'Game is not started yet!';
         if(this.status === STATUS_CLOSED) throw 'Your opponent leave game!';
         if(this.status === STATUS_WIN) throw 'Game is already finished!';
         if(userToMove.id !== id) throw "You can't move. Let opponent.";
+
         var closedElements = this.matrix.drawLine(cells, id);
+
         this.userToMove = this.userX.id === id ? this.userO : this.userX;
+
         return closedElements;
     };
 

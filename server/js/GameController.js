@@ -13,7 +13,9 @@ router.get('/games/:id', function(req, res){
 });
 
 router.put('/games/:id', function(req, res){
-    var result = gameProvider.getGame(req.params.id).check();
+    var userId = req.session.id;
+    var cells = JSON.parse(req.body);
+    var result = gameProvider.getGame(req.params.id).move(userId,cells);
     res.write(JSON.stringify(result));
     res.sendStatus(200);
     res.end();

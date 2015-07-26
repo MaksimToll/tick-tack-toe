@@ -1,7 +1,7 @@
 /**
  * Created by Vasyl Danylyuk on 26.07.2015.
  */
-var Game = require(Game);
+var Game = require('./Game');
 
 module.exports = (function(){
     var games = [];
@@ -36,4 +36,17 @@ module.exports = (function(){
         return result;
     };
 
+    /*
+     Static instance of GameProvider
+     Game provider is a singleton
+     */
+    var gameProvider;
+    function getGameProvider(){
+        if(gameProvider === undefined){
+            gameProvider = new GameProvider();
+        }
+        return gameProvider;
+    }
+
+    return getGameProvider();
 })();
