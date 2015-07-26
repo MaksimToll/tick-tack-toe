@@ -19,7 +19,7 @@ module.exports = (function(){
 
 
         }
-        console.log(this.matr);
+
 
     }
 
@@ -85,6 +85,25 @@ module.exports = (function(){
         return resultArray;
 
     };
+
+    // function return Array of closed elements
+    Matrix.prototype.checkFinishGame = function(){
+        var resultArray = new Array();
+        var winCounter=1;
+        for(var i = 0;i<this.matr.length;i++){
+            resultArray[i] = new Array();
+            for(var j =0; j<this.matr[i].length;j++){
+                if(this.matr[i][j].getCount()==4){
+                    resultArray[i][j] = this.matr[i][j].userId;
+                }else{
+                    resultArray[i][j] = 0;
+                    winCounter = 0;
+                }
+            }
+        }
+        return {status: winCounter, array: resultArray};
+    }
+
  return Matrix;
 })();
 

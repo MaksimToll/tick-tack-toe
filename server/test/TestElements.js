@@ -27,6 +27,16 @@ describe('Matrix',function(){
             actual.arr.should.eql([0,1,0,0]);
         });
     });
+    describe("checkFinishGame", function(){
+        it("function should return array[][] equal [[0,0,0,0],[0,0,0,0],[0,0,34,0],[0,0,0,0]]", function(){
+            var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
+            matr.drawLine(emylCoorrd, 34);
+            var expected = {status: 0, array: [[0,0,0,0],[0,0,0,0],[0,0,34,0],[0,0,0,0]]};
+            var actual = matr.checkFinishGame();
+
+            actual.should.eql(expected);
+        });
+    });
     describe("drawLine", function(){
         it("fucntio sould return should empty array []", function(){
             var emylCoorrd = [{"i": 1, "j": 2}, {"i": 1, "j": 3}];
@@ -37,7 +47,8 @@ describe('Matrix',function(){
 
             var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
             var actual = [{"i": 2, "j": 2}];
-
+            console.log(matr.matr[2][2].userId);
+            console.log(matr.matr[2][2].getCount());
             actual.should.eql(matr.drawLine(emylCoorrd));
 ;
         });
