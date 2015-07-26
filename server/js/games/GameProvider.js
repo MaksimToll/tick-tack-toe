@@ -1,20 +1,39 @@
 /**
  * Created by Vasyl Danylyuk on 26.07.2015.
  */
+var Game = require(Game);
+
 module.exports = (function(){
-    const DEFAULT_MATRIX_SIZE = 10;
+    var games = [];
+    var freeGame;
 
-    function Game(userX, userO){
-        if(userX === undefined){
-            throw "Can't create game without any users"
+    function GameProvider(){
+
+    }
+
+    GameProvider.prototype.letsPlay = function(user){
+        var gameId;
+        if(freeGame !== undefined){
+            freeGame.setOpponent(user);
+            games.push(freeGame);
+            gameId = freeGame.id;
+            freeGame = undefined;
+        }else{
+            freeGame = new Game(user);
+            gameId = freeGame.id;
         }
-        this.userX = userX;
-        this.userO = userO;
-        this.move = userX;
-        this.table = new Matrix()
-    }
+        return gameId;
+    };
 
-    Game.prototype.move = function(id, cells){
+    GameProvider.prototype.getGame = function(id){
+        var result;
+        games.every(function(game){
+            if(game.id === id){
+                result = game;
+                return false;
+            }
+        });
+        return result;
+    };
 
-    }
 })();
