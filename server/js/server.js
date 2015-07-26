@@ -9,7 +9,7 @@ var cookieSession = require('cookie-session');
 var routes = require('./routes');
 
 var app = express();
-app.use("/", express.static(path.join(__dirname, 'view')));
+app.use("/static", express.static(path.join(__dirname, 'view')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
@@ -18,7 +18,7 @@ app.use(cookieSession({ secret: 'superSecretCode'} ));
 /*
  sessions
  */
-function authorize() {
+/*function authorize() {
     function auth(req, res, next) {
 
         if (req.session.authorized) {
@@ -36,10 +36,10 @@ function authorize() {
         }
     }
     return auth;
-}
+}*/
 
 
-app.use('/', authorize());
+//app.use('/', authorize());
 app.use('/', routes);
 
 app.listen(8888);
