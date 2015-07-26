@@ -6,10 +6,10 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session');
-var routes = require('./routes');
+var routes = require('./server/js/routes');
 
 var app = express();
-app.use("/static", express.static(path.join(__dirname, 'view')));
+app.use("/static", express.static(path.join(__dirname, './view')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());

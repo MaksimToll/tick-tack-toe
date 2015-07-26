@@ -18,6 +18,12 @@ router.post('/register', function(req, res){
     res.end();
 });
 
+router.get('/', function(req, res){
+    res.write("adfgasdfg");
+    res.sendStatus(200);
+    res.end();
+});
+
 
 
 module.exports = router;
