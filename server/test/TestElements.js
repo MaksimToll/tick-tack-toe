@@ -4,6 +4,7 @@
 var Matrix = require('../js/Matrix');
 
 describe('Matrix',function(){
+
     var matr = new Matrix(4);
 
     matr.matr[2][2].addLine(0);
@@ -36,6 +37,17 @@ describe('Matrix',function(){
 
             actual.should.eql(expected);
         });
+        it("function should return array[][] equal [[0,0,0,34],[0,0,0,0],[0,0,0,0],[0,0,0,0]]", function(){
+            var emylCoorrd = [{"i": 0, "j": 3}, {"i": 1, "j": 3}];
+            var lockTheCage = [{"i": 0, "j": 3}, {"i": 0, "j": 2}];
+            matr.drawLine(emylCoorrd, 34);
+            matr.drawLine(lockTheCage, 34);
+            var expected = {status: 0, array: [[0,0,0,34],[0,0,0,0],[0,0,34,0],[0,0,0,0]]};
+            console.log(matr.matr[0][3]);
+            var actual = matr.checkFinishGame();
+
+            actual.should.eql(expected);
+        });
     });
     describe("drawLine", function(){
         it("fucntio sould return should empty array []", function(){
@@ -43,7 +55,7 @@ describe('Matrix',function(){
             var actual = [];
             actual.should.eql(matr.drawLine(emylCoorrd));
         });
-        it("fucntio sould return should wmpty array [0,1,0,0]", function(){
+        it("fucntion sould return should wmpty array [0,1,0,0]", function(){
 
             var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
             var actual = [{"i": 2, "j": 2}];
