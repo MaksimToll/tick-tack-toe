@@ -22,8 +22,10 @@ module.exports = (function(){
         this.matrix = new Matrix(DEFAULT_MATRIX_SIZE);
         this.status = STATUS_WAIT;
 
+        var _this = this;
         setInterval(function(){
-            if(! checkUsersOnline(this)){
+            if(_this.status = STATUS_CLOSED) return;
+            if(! checkUsersOnline(_this)){
                 this.status = STATUS_CLOSED;
             }
         }, 5000);
@@ -38,7 +40,9 @@ module.exports = (function(){
     }
 
     function checkUsersOnline(game){
-        if(! userProvider.contains(game.userO.id)) return false;
+        if(game.status === STATUS_PLAY) {
+            if (!userProvider.contains(game.userO.id)) return false;
+        }
         return userProvider.contains(game.userX.id);
     }
 
@@ -52,12 +56,16 @@ module.exports = (function(){
     };
 
     Game.prototype.move = function(id, cells){
+
         if(this.status === STATUS_WAIT) throw 'Game is not started yet!';
         if(this.status === STATUS_CLOSED) throw 'Your opponent leave game!';
         if(this.status === STATUS_WIN) throw 'Game is already finished!';
-        if(userToMove.id !== id) throw "You can't move. Let opponent.";
+        if(this.userToMove.id !== id) throw "You can't move. Let opponent.";
+
         var closedElements = this.matrix.drawLine(cells, id);
+
         this.userToMove = this.userX.id === id ? this.userO : this.userX;
+
         return closedElements;
     };
 
@@ -69,7 +77,7 @@ module.exports = (function(){
             this.status = gameCheck.status ? STATUS_WIN : STATUS_PLAY;
             result = {
                 array: gameCheck.array
-            };
+            }
         }
 
         result = {

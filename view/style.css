@@ -15,9 +15,17 @@
 }
 
 .marked{
-    background-color: #b94a48;
+     background-color: #b94a48 !important;
 }
 
-tr:nth-child(n+1){
+td:nth-child(even){
     background-color: aliceblue;
 }
+
+td:nth-child(even):hover, tr:nth-child(even):hover{
+    cursor: pointer;
+}
+
+tr:nth-child(even){
+     background-color: aliceblue;
+ }
