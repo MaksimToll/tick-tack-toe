@@ -1,6 +1,9 @@
 var table = (function(){
-    function Table(){
 
+
+    function Table(){
+        this.gameId = 0;
+        this.userId = 0;
     }
 
     /*
@@ -35,6 +38,13 @@ var table = (function(){
     };
 
     /*
+     Convert array index to table index
+     */
+    Table.prototype.getTableIndex = function(i,j){
+        return {"i": i*2, "j": j*2};
+    };
+
+    /*
     Mark given line and invoke it's in Matrix
      */
     Table.prototype.drawLine = function(cell){
@@ -58,11 +68,18 @@ var table = (function(){
             elements[0] = this.getArrayIndex(cellIndex.i - 1, cellIndex.j);
             elements[1] = this.getArrayIndex(cellIndex.i + 1, cellIndex.j);
         }
-        try{
-            matrix.drawLine(elements);
-        }catch (e){
-            console.log("Matrix is not defined");
-        }
+
+        jQuery.ajax({
+            url:'localhost:8888/games/'+this.gameId,
+            method: 'PUT',
+            data: JSON.stringify(elements),
+            success: function(){
+                console.log('Draw line successfully sent to server');
+            },
+            error: function(){
+                console.log('Error occured during ');
+            }
+        });
 
         return elements;
 
@@ -90,6 +107,22 @@ var table = (function(){
             }
             jQuery(tbl).append(tr);
         }
+    };
+
+    /*
+    Update table view by array passed from server
+     */
+    Table.prototype.updateTable = function(array){
+        array.forEach(function(row, i, table){
+            row.forEach(function(cell, j){
+                var tableCell = this.getTableIndex(i,j);
+                if(cell == this.userId){
+                    jQuery(this.getViewCell(tableCell.i, tableCell.j)).addClass('myCell');
+                }else if(cell !== 0){
+                    jQuery(this.getViewCell(tableCell.i, tableCell.j)).addClass('opponentCellCell');
+                }
+            })
+        })
     };
 
     function createColumn(index){

@@ -36,10 +36,6 @@ module.exports = (function(){
         return result;
     };
 
-    /*
-     Static instance of GameProvider
-     Game provider is a singleton
-     */
     var gameProvider;
     function getGameProvider(){
         if(gameProvider === undefined){

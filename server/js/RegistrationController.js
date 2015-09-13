@@ -9,31 +9,33 @@ var gameProvider = require('./games/GameProvider');
 
 router.use('/', function(req, res, next){
     var path = url.parse(req.url).pathname;
-    if ((req.session.authorized && userProvider.contains(req.session.id) )|| path === '/register') {
+    if ((req.session.authorized && userProvider.contains(req.session.userId) )|| path === '/register') {
         next();
     }
     else {
-        res.sendStatus(401);
+        res.redirect('/static/index.html');
         res.end();
     }
 });
 
 router.post('/register', function(req, res){
-    var userName = req.param('name') ? req.param('name') : '';
+    console.log(req.body);
 
-    user = userProvider.registerUser(userName);
+    userName = req.body.name ? req.body.name : '';
+
+    var user = userProvider.registerUser(userName);
 
     var gameId = gameProvider.letsPlay(user);
 
-    var result = {gameId: gameId};
+    var result = {gameId: gameId, userId: user.id};
 
     res.write(JSON.stringify(result));
 
     req.session.authorized = true;
     req.session.username = user.name;
     req.session.userId = user.id;
+    req.session.gameId = gameId;
 
-    res.sendStatus(200);
     res.end();
 });
 

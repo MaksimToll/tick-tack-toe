@@ -38,12 +38,12 @@ describe('Matrix',function(){
         });
     });
     describe("drawLine", function(){
-        it("fucntio sould return should empty array []", function(){
+        it("function should return should empty array []", function(){
             var emylCoorrd = [{"i": 1, "j": 2}, {"i": 1, "j": 3}];
             var actual = [];
             actual.should.eql(matr.drawLine(emylCoorrd));
         });
-        it("fucntio sould return should wmpty array [0,1,0,0]", function(){
+        it("function should return should wmpty array [0,1,0,0]", function(){
 
             var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
             var actual = [{"i": 2, "j": 2}];

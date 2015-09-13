@@ -68,10 +68,6 @@ module.exports = (function(){
         this.lastUpdated = Date.now();
     }
 
-    /*
-    Static instance of UserProvider
-    User provider is a singleton
-     */
     var userProvider;
     function getUserProvider(){
         if(userProvider === undefined){

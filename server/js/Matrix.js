@@ -26,19 +26,15 @@ module.exports = (function(){
 
 
     Matrix.prototype.createArray = function (size) {
-        var resArr = new Array();
+        var resArr = [];
         for (var i = 0; i < size; i++) {
-            resArr[i] = new Array();
+            resArr[i] = [];
             for (var j = 0; j < size; j++) {
                 resArr[i][j] = new Element();
             }
         }
         return resArr;
     };
-
-
-
-    var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
 
     Matrix.prototype.drawLine = function (сoord , userId) {
         var resultArray = [];
@@ -88,10 +84,10 @@ module.exports = (function(){
 
     // function return Array of closed elements
     Matrix.prototype.checkFinishGame = function(){
-        var resultArray = new Array();
+        var resultArray = [];
         var winCounter=1;
         for(var i = 0;i<this.matr.length;i++){
-            resultArray[i] = new Array();
+            resultArray[i] = [];
             for(var j =0; j<this.matr[i].length;j++){
                 if(this.matr[i][j].getCount()==4){
                     resultArray[i][j] = this.matr[i][j].userId;
@@ -102,7 +98,7 @@ module.exports = (function(){
             }
         }
         return {status: winCounter, array: resultArray};
-    }
+    };
 
  return Matrix;
 })();
