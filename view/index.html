@@ -1,34 +1,20 @@
-<!doctype html>
+<!Doctype html>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
     <!--Controllers-->
     <script src="js/registrationCtrl.js"></script>
+    <script src="js/table.js"></script>
 
-    <!--<script>$('#myModal').on('shown.bs.modal', function () {-->
-    <!--&lt;!&ndash;$('#myInput').focus()-->
-    <!--})</script>-->
 </head>
 <body>
 
-
-<script>
-//        window.onload = function(){
-//            $('#myModal').modal('show');
-//        }
-
-</script>
-
-
-<div ng-app="myApp" ng-controller="regCtrl" data-ng-init = "showRegWindow()">
-
-    <!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
-    <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
-        <!--Launch demo modal-->
-    <!--</button>-->
+<div ng-app="myApp" ng-controller="regCtrl" data-ng-init="showRegWindow()">
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -41,11 +27,10 @@
                 </div>
                 <div class="modal-body">
                     <br/>
-                               name: <input type="text" ng-model="username"><br>
+                    name: <input type="text" ng-model="username"><br>
                     <br/>
                 </div>
                 <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
                     <button type="button" class="btn btn-primary" ng-click="myData.doClick(item, $event)"
                             data-dismiss="modal">Ok
                     </button>
@@ -55,6 +40,13 @@
     </div>
 
 </div>
-<!-- End ng-myApp
+<!-- End ng-myApp -->
+<!-- Begin gameCtrl -->
+<div ng-app="myApp" ng-controller="gameCtrl" data-ng-init="tryShowTable()">
+    <table id="table">
+
+    </table>
+</div>
+<!-- End ng-gameCtrl -->
 </body>
 </html>
