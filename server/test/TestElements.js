@@ -43,14 +43,14 @@ describe('Matrix',function(){
             var actual = [];
             actual.should.eql(matr.drawLine(emylCoorrd));
         });
-        it("function should return should wmpty array [0,1,0,0]", function(){
+        it("function should return should empty array [0,1,0,0]", function(){
 
             var emylCoorrd = [{"i": 2, "j": 2}, {"i": 3, "j": 2}];
             var actual = [{"i": 2, "j": 2}];
             console.log(matr.matr[2][2].userId);
             console.log(matr.matr[2][2].getCount());
             actual.should.eql(matr.drawLine(emylCoorrd));
-;
+
         });
     });
 });
