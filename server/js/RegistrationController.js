@@ -13,8 +13,7 @@ router.use('/', function(req, res, next){
         next();
     }
     else {
-        res.redirect('/static/index.html');
-        res.end();
+        res.sendStatus(401);
     }
 });
 

@@ -14,7 +14,7 @@
             table.createTable(15);
         });
 
-        QUnit.test("tableTest.getCell", function(assert){
+        /*QUnit.test("tableTest.getCell", function(assert){
             for(var i = 0; i < 4; i++){
                 for(var j = 0; j < 4; j++){
                     assert.equal(jQuery(table.getViewCell(i,j)).index(), j);
@@ -57,13 +57,33 @@
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].i, 1);
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[0].j, 1);
             assert.equal(table.drawLine(jQuery('#table').find('tr:eq(2) td:eq(3)'))[1].j, 2);
-        });
+        });*/
+
+        var u = {
+            name: 'John'
+        };
+
+        function t(){
+            jQuery.ajax({
+                url:'/register',
+                method: 'POST',
+                data: u,
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(d){
+                    console.log(d);
+                }
+            });
+            return false;
+        }
 
     </script>
 
 
 </head>
 <body>
+<button onclick="t()">srthj</button>
 <div id="qunit"></div>
 <table id="table">
 

@@ -1,6 +1,6 @@
 module.exports = (function(){
-    const OUTDATED_TIME = 10000;
-    const CLEAR_INTERVAL = 5000;
+    const OUTDATED_TIME = 100000000000;
+    const CLEAR_INTERVAL = 500000;
 
     var users = [];
     /*
