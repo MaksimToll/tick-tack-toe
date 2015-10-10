@@ -17,10 +17,13 @@ app.controller('regCtrl', function ($scope, $http) {
             $scope.tryShowTable();
 
         });
+
         responsePromise.error(function (data, status, headers, config) {
             Console.log("AJAX failed!");
         });
+        $("#myModal").modal("hide");
     }
+
     $scope.fullName = function () {
         return $scope.firstName + " " + $scope.lastName;
     }
@@ -32,6 +35,20 @@ app.controller('regCtrl', function ($scope, $http) {
             table.createTable(15);
     }
 
+
+});
+app.directive('myEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.myEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
 });
 
 app.controller("gameCtrl", function($scope, $http){
