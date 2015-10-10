@@ -13,8 +13,9 @@ app.controller('regCtrl', function ($scope, $http) {
         var user = {name: $scope.username};
         var responsePromise = $http.post("/register", user);
         responsePromise.success(function (data, status, headers, config) {
-            //$scope.myData.fromServer = data.title();
-            $scope.tryShowTable();
+            var userId = data.userId;
+            var gameId = data.gameId;
+            $scope.tryShowTable(userId, gameId);
 
         });
         responsePromise.error(function (data, status, headers, config) {
@@ -28,15 +29,17 @@ app.controller('regCtrl', function ($scope, $http) {
         $('#myModal').modal('show');
     };
 
-    $scope.tryShowTable = function() {
-            table.createTable(15);
+    $scope.tryShowTable = function(userId, gameId) {
+            table.createTable(15, userId, gameId);
             setInterval(updateTable, 1000);
     };
 
     function updateTable(){
         var responsePromise = $http.get("/game");
         responsePromise.success(function (data, status, headers, config){
+            if(data.status == 0){
                 table.updateTable(data.array)
+            }
         });
 
     }

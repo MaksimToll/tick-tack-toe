@@ -29,3 +29,11 @@ td:nth-child(even):hover, tr:nth-child(even):hover{
 tr:nth-child(even){
      background-color: aliceblue;
  }
+
+.opponentCell{
+    background-color: #120db9 !important;
+}
+
+.myCell{
+    background-color: #13b92a !important;
+}
