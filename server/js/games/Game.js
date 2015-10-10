@@ -1,7 +1,7 @@
 /**
  * Created by Vasyl Danylyuk on 26.07.2015.
  */
-var Matrix = require('../Element');
+var Matrix = require('../Matrix');
 var userProvider = require('../users/UserProvider');
 
 module.exports = (function(){
@@ -14,7 +14,7 @@ module.exports = (function(){
 
     function Game(userX){
         if(userX === undefined){
-            throw "Can't create game without any users"
+            throw new Error("Can't create game without any users")
         }
         this.id = getId();
         this.userX = userX;
@@ -24,8 +24,8 @@ module.exports = (function(){
 
         var _this = this;
         setInterval(function(){
-            if(_this.status = STATUS_CLOSED) return;
-            if(! checkUsersOnline(_this)){
+            if(_this.status == STATUS_CLOSED) return;
+            if(_this.status !== STATUS_WAIT && !checkUsersOnline(_this)){
                 this.status = STATUS_CLOSED;
             }
         }, 5000);
@@ -57,10 +57,12 @@ module.exports = (function(){
 
     Game.prototype.move = function(id, cells){
 
-        if(this.status === STATUS_WAIT) throw 'Game is not started yet!';
-        if(this.status === STATUS_CLOSED) throw 'Your opponent leave game!';
-        if(this.status === STATUS_WIN) throw 'Game is already finished!';
-        if(this.userToMove.id !== id) throw "You can't move. Let opponent.";
+        if(this.status === STATUS_WAIT) throw new Error('Game is not started yet!');
+        if(this.status === STATUS_CLOSED) throw new Error('Your opponent leave game!');
+        if(this.status === STATUS_WIN) throw new Error('Game is already finished!');
+        if(this.userToMove.id !== id) throw new Error("You can't move. Let opponent.");
+
+
 
         var closedElements = this.matrix.drawLine(cells, id);
 

@@ -69,10 +69,14 @@ var table = (function(){
             elements[1] = this.getArrayIndex(cellIndex.i + 1, cellIndex.j);
         }
 
+        var data = {
+            elements : JSON.stringify(elements)
+        };
+
         jQuery.ajax({
-            url:'localhost:8888/games/'+this.gameId,
+            url:'/games',
             method: 'PUT',
-            data: JSON.stringify(elements),
+            data: data,
             success: function(){
                 console.log('Draw line successfully sent to server');
             },

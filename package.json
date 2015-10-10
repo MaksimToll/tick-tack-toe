@@ -17,6 +17,6 @@
     "supertest": "*",
     "connect": "*",
     "cookie-parser":"*",
-    "cookie-session ":"*"
+    "express-session ":"*"
   }
 }

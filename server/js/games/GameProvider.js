@@ -26,6 +26,8 @@ module.exports = (function(){
     };
 
     GameProvider.prototype.getGame = function(id){
+        if (freeGame !== undefined && freeGame.id === id) return freeGame;
+
         var result;
         games.every(function(game){
             if(game.id === id){

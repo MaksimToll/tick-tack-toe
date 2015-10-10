@@ -1,6 +1,8 @@
+var User = require('./User.js');
+
 module.exports = (function(){
-    const OUTDATED_TIME = 10000;
-    const CLEAR_INTERVAL = 5000;
+    const OUTDATED_TIME = 100000000000;
+    const CLEAR_INTERVAL = 500000;
 
     var users = [];
     /*
@@ -48,24 +50,6 @@ module.exports = (function(){
                 users.splice(index, 1)
             }
         })
-    }
-
-
-    /*
-    Private userId generator
-     */
-    var lastId = 1;
-    function getId(){
-        return lastId++;
-    }
-
-    /*
-    User constructor
-     */
-    function User(name){
-        this.name = name;
-        this.id = getId();
-        this.lastUpdated = Date.now();
     }
 
     var userProvider;
