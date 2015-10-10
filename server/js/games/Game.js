@@ -14,7 +14,7 @@ module.exports = (function(){
 
     function Game(userX){
         if(userX === undefined){
-            throw "Can't create game without any users"
+            throw new Error("Can't create game without any users")
         }
         this.id = getId();
         this.userX = userX;
@@ -57,14 +57,14 @@ module.exports = (function(){
 
     Game.prototype.move = function(id, cells){
 
-        if(this.status === STATUS_WAIT) throw 'Game is not started yet!';
-        if(this.status === STATUS_CLOSED) throw 'Your opponent leave game!';
-        if(this.status === STATUS_WIN) throw 'Game is already finished!';
-        if(this.userToMove.id !== id) throw "You can't move. Let opponent.";
+        if(this.status === STATUS_WAIT) throw new Error('Game is not started yet!');
+        if(this.status === STATUS_CLOSED) throw new Error('Your opponent leave game!');
+        if(this.status === STATUS_WIN) throw new Error('Game is already finished!');
+        if(this.userToMove.id !== id) throw new Error("You can't move. Let opponent.");
 
 
 
-        var closedElements = this.matrix.drawLine(JSON.parse(cells), id);
+        var closedElements = this.matrix.drawLine(cells, id);
 
         this.userToMove = this.userX.id === id ? this.userO : this.userX;
 
