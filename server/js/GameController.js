@@ -9,7 +9,6 @@ router.get('/game', function(req, res){
     var gameId = req.session.gameId;
     var result = gameProvider.getGame(gameId).check();
     res.write(JSON.stringify(result));
-    res.sendStatus(200);
     res.end();
 });
 
