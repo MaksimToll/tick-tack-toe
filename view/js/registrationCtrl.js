@@ -5,9 +5,9 @@
 var app = angular.module('myApp', []);
 
 app.controller('regCtrl', function ($scope, $http) {
-    $scope.firstName = "John",
-        $scope.lastName = "Doe",
-        $scope.myData = {};
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+    $scope.myData = {};
 
     $scope.myData.doClick = function (item, event) {
         var user = {name: $scope.username};
@@ -20,16 +20,25 @@ app.controller('regCtrl', function ($scope, $http) {
         responsePromise.error(function (data, status, headers, config) {
             Console.log("AJAX failed!");
         });
-    }
+    };
     $scope.fullName = function () {
         return $scope.firstName + " " + $scope.lastName;
-    }
+    };
     $scope.showRegWindow = function () {
         $('#myModal').modal('show');
-    }
+    };
 
     $scope.tryShowTable = function() {
             table.createTable(15);
+            setInterval(updateTable, 1000);
+    };
+
+    function updateTable(){
+        var responsePromise = $http.get("/game");
+        responsePromise.success(function (data, status, headers, config){
+                table.updateTable(data.array)
+        });
+
     }
 
 });

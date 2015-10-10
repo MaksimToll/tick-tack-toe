@@ -72,15 +72,13 @@ module.exports = (function(){
     };
 
     Game.prototype.check = function(){
-        var result;
+        var result = {};
 
         if(this.status === STATUS_PLAY){
             var gameCheck = this.matrix.checkFinishGame();
             this.status = gameCheck.status ? STATUS_WIN : STATUS_PLAY;
-            result = {
-                array: gameCheck.array
-            }
-        }
+            result.array = gameCheck.array;
+        };
 
         result.status = this.status;
 
