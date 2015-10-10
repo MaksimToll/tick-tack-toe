@@ -1,6 +1,3 @@
-/**
- * Created by Vasyl Danylyuk on 25.07.2015.
- */
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
