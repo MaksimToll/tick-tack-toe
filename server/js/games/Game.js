@@ -82,9 +82,7 @@ module.exports = (function(){
             }
         }
 
-        result = {
-            status: this.status
-        };
+        result.status = this.status;
 
         return result;
     };
