@@ -23,11 +23,7 @@ app.controller('regCtrl', function ($scope, $http) {
             Console.log("AJAX failed!");
         });
 
-
     }
-
-
-
 
     $scope.fullName = function () {
         return $scope.firstName + " " + $scope.lastName;

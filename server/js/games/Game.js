@@ -82,6 +82,9 @@ module.exports = (function(){
 
         result.status = this.status;
 
+        //return all table, for known disable border
+        result.allTable = gameCheck.allMatrix;
+
         return result;
     };
 

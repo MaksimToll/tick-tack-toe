@@ -97,7 +97,7 @@ module.exports = (function(){
                 }
             }
         }
-        return {status: winCounter, array: resultArray};
+        return {status: winCounter, array: resultArray, allMatrix: this.matr};
     };
 
  return Matrix;
