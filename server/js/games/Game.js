@@ -78,12 +78,13 @@ module.exports = (function(){
             var gameCheck = this.matrix.checkFinishGame();
             this.status = gameCheck.status ? STATUS_WIN : STATUS_PLAY;
             result.array = gameCheck.array;
+            //return all table, for known disable border
+            result.allTable = gameCheck.allMatrix;
         };
 
         result.status = this.status;
 
-        //return all table, for known disable border
-        result.allTable = gameCheck.allMatrix;
+
 
         return result;
     };
